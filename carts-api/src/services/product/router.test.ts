@@ -15,7 +15,7 @@ describe("List cart items", () => {
   it("Should list all cart items", async () => {
     const response = await app.inject({
       method: "GET",
-      url: "/product",
+      url: "/cart",
     });
 
     expect(response.statusCode).toBe(200);
