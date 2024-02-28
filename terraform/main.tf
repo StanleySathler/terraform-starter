@@ -20,9 +20,10 @@ resource "docker_image" "products-api" {
   }
 
   # Trigger a rebuild whenever source files change
-  # triggers = {
-  #   dir_sha1 = sha1(join("", [for f in fileset(path.module, "src/*") : filesha1(f)]))
-  # }
+  triggers = {
+    # dir_sha1 = sha1(join("", [for f in fileset(path.root, "src/*") : filesha1(f)]))
+    dir_sha1 = sha1(join("", [for f in fileset(join("",[path.root, "../products-api"]), "*") : filesha1(f)]))
+  }
 }
 
 resource "docker_container" "products-api" {

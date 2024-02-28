@@ -6,5 +6,5 @@ export const listProducts = async (req: FastifyRequest, res: FastifyReply) => {
   // - HttpOnly - ensure token is not accessible from JavaScript to prevent XSS attacks.
   res.header("Set-Cookie", `token=abcdefg; Path=/; HttpOnly;`);
 
-  res.send({ data: [{ id: 1, name: "iPhone", price: 3599.99 }] });
+  res.send({ data: [{ id: 1, name: "iPhone Pro Max 3", price: 3599.99 }] });
 };
