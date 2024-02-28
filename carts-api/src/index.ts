@@ -1,6 +1,6 @@
 import { setupApp } from "./utils";
 
-const PORT = 3001;
+const PORT = 3002;
 const HOST = "::"; // This is required for Docker environments
 
 /*
