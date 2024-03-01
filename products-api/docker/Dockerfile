@@ -12,4 +12,4 @@ COPY . .
 RUN npm run build
 
 # Run app
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "start:local"]
