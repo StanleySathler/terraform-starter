@@ -24,3 +24,10 @@ services:
       dockerfile: ./docker/Dockerfile
     ports:
       - "3001:3001"
+
+  carts-api:
+    build:
+      context: ./carts-api
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - "3002:3002"

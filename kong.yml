@@ -7,3 +7,9 @@ services:
   - name: products-api-router
     paths:
       - /product
+- name: carts-api-service
+  url: http://carts-api:3002
+  routes:
+  - name: carts-api-router
+    paths:
+      - /cart

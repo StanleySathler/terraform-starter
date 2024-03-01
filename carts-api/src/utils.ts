@@ -20,7 +20,7 @@ export const setupApp = () => {
   /*
    * Router.
    */
-  fastify.register(cartRouter, { prefix: "cart" });
+  fastify.register(cartRouter);
 
   return fastify;
 };
