@@ -1,0 +1,9 @@
+_format_version: "3.0"
+
+services:
+- name: products-api-service
+  url: http://host.docker.internal:3001
+  routes:
+  - name: products-api-router
+    paths:
+      - /product
