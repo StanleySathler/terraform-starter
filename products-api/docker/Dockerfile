@@ -8,8 +8,8 @@ COPY package*.json ./
 RUN npm ci
 
 # Build app
-COPY . .
-RUN npm run build
+# COPY . .
+# RUN npm run build
 
 # Run app
 CMD ["npm", "run", "start:local"]

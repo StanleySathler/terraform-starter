@@ -26,7 +26,7 @@ services:
       - "3001:3001"
     volumes:
       - ./products-api:/app # Full path, not relative to context
-      - node_modules:/app/node_modules
+      - products_node_modules:/app/node_modules
 
   carts-api:
     build:
@@ -34,6 +34,10 @@ services:
       dockerfile: ./docker/Dockerfile
     ports:
       - "3002:3002"
+    volumes:
+      - ./carts-api:/app # Full path, not relative to context
+      # - carts_node_modules:/app/node_modules
 
 volumes:
-  node_modules:
+  products_node_modules:
+  # carts_node_modules:
