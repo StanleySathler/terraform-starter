@@ -29,3 +29,10 @@ $ docker-compose up # Start Kong
 $ cd products-api && npm run start:local # Start Products API - Soon we'll move this to Docker Compose too
 $ cd cart-api && npm run start:local # Start Cart API - Soon we'll move this to Docker Compose too
 ```
+
+Once all services are running, open your browser and do:
+
+```bash
+GET http://localhost:8000/product
+GET http://localhost:8000/cart
+```

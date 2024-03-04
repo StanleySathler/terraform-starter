@@ -2,13 +2,15 @@ _format_version: "3.0"
 
 services:
 - name: products-api-service
-  url: http://products-api:3001
+  # url: http://products-api:3001
+  url: http://host.docker.internal:3001
   routes:
   - name: products-api-router
     paths:
       - /product
 - name: carts-api-service
-  url: http://carts-api:3002
+  # url: http://carts-api:3002
+  url: http://host.docker.internal:3002
   routes:
   - name: carts-api-router
     paths:

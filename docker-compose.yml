@@ -18,16 +18,16 @@ services:
       - "127.0.0.1:8001:8001"
       - "127.0.0.1:8444:8444"
 
-  products-api:
-    build:
-      context: ./products-api
-      dockerfile: ./docker/Dockerfile
-    ports:
-      - "3001:3001"
+  # products-api:
+  #   build:
+  #     context: ./products-api
+  #     dockerfile: ./docker/Dockerfile
+  #   ports:
+  #     - "3001:3001"
 
-  carts-api:
-    build:
-      context: ./carts-api
-      dockerfile: ./docker/Dockerfile
-    ports:
-      - "3002:3002"
+  # carts-api:
+  #   build:
+  #     context: ./carts-api
+  #     dockerfile: ./docker/Dockerfile
+  #   ports:
+  #     - "3002:3002"
