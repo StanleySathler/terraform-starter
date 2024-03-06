@@ -17,6 +17,7 @@ All endpoints are prefixed with `/api` and are accessible via the API Gateway.
 
 - Docker & Docker Compose
 - Node.js 20.x & npm 9.x
+- Terraform 1.x
 
 ### Running all services
 
@@ -35,4 +36,12 @@ Once all services are running, open your browser and do:
 ```bash
 GET http://localhost:8000/product
 GET http://localhost:8000/cart
+```
+
+### Applying Terraform
+
+First, ensure you have a Service Account key. Contact the administrator. Save it in the root folder as `service-account.json`.
+
+```bash
+$ terraform apply
 ```
