@@ -40,6 +40,8 @@ GET http://localhost:8000/cart
 
 ### Applying Terraform
 
+> Before you apply Terraform, you may need to enable a few Google Cloud APIs, including Cloud Run Admin API, API Gateway API, etc.
+
 First, ensure you have a Service Account key. Contact the administrator. Save it in the root folder as `service-account.json`.
 
 ```bash

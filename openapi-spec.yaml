@@ -1,0 +1,53 @@
+# TODO: Generate this automatically from our API code.
+# ------------------------------------------------------------------------------
+
+swagger: "2.0"
+info:
+  title: API Spec for lab-terraform-starter project
+  description: "API for the lab-terraform-starter project."
+  version: "1.0.0"
+schemes:
+  - "https"
+produces:
+  - "application/json"
+paths:
+  "/product":
+    get:
+      x-google-backend:
+        address: https://products-api-lf5mudmufa-uc.a.run.app
+      description: "List all products"
+      operationId: "listProducts"
+      responses:
+        200:
+          description: "A list with all products"
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                name:
+                  type: string
+                price:
+                  type: number
+  "/cart":
+    get:
+      x-google-backend:
+        address: https://carts-api-lf5mudmufa-uc.a.run.app
+      description: "List all carts"
+      operationId: "listCarts"
+      responses:
+        200:
+          description: "A list with all carts"
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                name:
+                  type: string
+                price:
+                  type: number
