@@ -11,6 +11,8 @@ All endpoints are prefixed with `/api` and are accessible via the API Gateway.
 - Requests to `/product` are routed to the Products API
 - Requests to `/cart` are routed to the Cart API
 
+![image](https://github.com/StanleySathler/terraform-starter/assets/11931916/0def9ccf-8313-44ad-b7f2-a49ea360702f)
+
 ## For developers
 
 ### Prerequisites
