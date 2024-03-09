@@ -27,10 +27,41 @@ resource "google_cloud_run_v2_service" "products-api" {
   }
 }
 
+# Cloud Run for Carts API
+resource "google_cloud_run_v2_service" "carts-api" {
+  name     = "carts-api"
+  location = "us-central1"
+  
+  template {
+    scaling {
+      max_instance_count = 1
+    }
+
+    containers {
+      image = "gcr.io/cloudrun/hello"
+      resources {
+        cpu_idle = true
+        limits = {
+          memory = "128Mi"
+          cpu = "1"
+        }
+      }
+    }
+  }
+}
+
 # Ensure Cloud Run for Products API is publicly accessible
-resource "google_cloud_run_v2_service_iam_member" "member" {
+resource "google_cloud_run_v2_service_iam_member" "products-api" {
   location = google_cloud_run_v2_service.products-api.location
   name = google_cloud_run_v2_service.products-api.name
+  role = "roles/run.invoker"
+  member = "allUsers"
+}
+
+# Ensure Cloud Run for Carts API is publicly accessible
+resource "google_cloud_run_v2_service_iam_member" "carts-api" {
+  location = google_cloud_run_v2_service.carts-api.location
+  name = google_cloud_run_v2_service.carts-api.name
   role = "roles/run.invoker"
   member = "allUsers"
 }
