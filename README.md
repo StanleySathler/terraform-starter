@@ -42,17 +42,24 @@ GET http://localhost:8000/cart
 
 ### Deploying new versions
 
-> Before you apply Terraform, you may need to enable a few Google Cloud APIs, including Cloud Run Admin API, API Gateway API, etc.
+> You may need to manually enable a few GCP APIs, including Cloud Run Admin API, API Gateway API, etc, as we're not managing these on Terraform yet.
 
 First, ensure you have a Service Account key. Contact the administrator. Save it to `terraform/gcp-service-account.json`.
 
 ```bash
-# Ensure you're at the root folder.
+# 1. Ensure you're at the root folder.
 cd terraform-starter
 
-# Deploy (Build & Publish) the Docker images
-$ ./scripts/deploy-image.sh
+# 2. Deploy (Build & Publish) the Docker images
+$ ./scripts/deploy-image.sh carts-api 1.0.1
 
-# Apply Terraform
+# 3. Change your Terraform image, so it points to the image tag you just published
+# TODO: Get rid of this manual step, and deploy a new revision from CI on every new tag.
+containers {
+  image = "docker.io/stanleysathler/terraform-starter-carts-api:1.0.1"
+  ...
+}
+
+# 4. Apply Terraform
 $ terraform apply
 ```
