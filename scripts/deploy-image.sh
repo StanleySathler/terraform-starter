@@ -13,7 +13,7 @@ tag="$2"
 docker buildx create --name terraform-starter-builder --bootstrap --use
 
 # Build Docker image. 
-# Docker Buildx, because we're building from MacOS (arm64) but for Cloud Run (amd64)
+# Docker Buildx, as we need multi-platform builds - we're building from MacOS (arm64) but for Cloud Run (amd64)
 docker buildx build \
     --push \
     --platform linux/amd64,linux/arm64 \

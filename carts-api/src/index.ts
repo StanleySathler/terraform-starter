@@ -1,6 +1,6 @@
 import { setupApp } from "./utils";
 
-const PORT = Number.parseInt(process.env.PORT ?? "3003"); // Cloud Run requires you to use `process.env.PORT` as it assigns a random port.
+const PORT = Number.parseInt(process.env.PORT ?? "3003"); // Cloud Run requires you to use `process.env.PORT`.
 const HOST = "::"; // This is required for Docker environments.
 
 /*
