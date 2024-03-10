@@ -48,7 +48,7 @@ resource "google_cloud_run_v2_service" "carts-api" {
     }
 
     containers {
-      image = "gcr.io/cloudrun/hello"
+      image = "docker.io/stanleysathler/terraform-starter-carts-api:1.0.1" # We can't always use `latest` - file must be changed so Terraform does a new deploy.
       resources {
         cpu_idle = true
         limits = {

@@ -9,15 +9,15 @@ fi
 service_name="$1"
 tag="$2"
 
-# Build Docker image ---- docker build -t <image-name> -f <dockerfile-path> <context-path>
-echo "[+] Building image..."
-docker build -t stanleysathler/terraform-starter-$service_name:$tag -f $service_name/docker/Dockerfile $service_name # Note the image must contain our Docker username must be in this format
+# Setup buildx 
+docker buildx create --name terraform-starter-builder --bootstrap --use
 
-# Publish Docker image
-echo "[+] Publishing image..."
-docker push stanleysathler/terraform-starter-$service_name:$tag # Note the image must contain our Docker username and must be in this format
-
-# Publishing a `latest` alias
-echo "[+] Publishing latest alias..."
-docker tag stanleysathler/terraform-starter-$service_name:$tag stanleysathler/terraform-starter-$service_name:latest
-docker push stanleysathler/terraform-starter-$service_name:latest
+# Build Docker image. 
+# Docker Buildx, because we're building from MacOS (arm64) but for Cloud Run (amd64)
+docker buildx build \
+    --push \
+    --platform linux/amd64,linux/arm64 \
+    --tag stanleysathler/terraform-starter-$service_name:$tag \
+    --tag stanleysathler/terraform-starter-$service_name:latest \
+    --file $service_name/docker/Dockerfile \
+    $service_name
