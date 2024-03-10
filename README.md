@@ -40,12 +40,19 @@ GET http://localhost:8000/product
 GET http://localhost:8000/cart
 ```
 
-### Applying Terraform
+### Deploying new versions
 
 > Before you apply Terraform, you may need to enable a few Google Cloud APIs, including Cloud Run Admin API, API Gateway API, etc.
 
 First, ensure you have a Service Account key. Contact the administrator. Save it in the root folder as `service-account.json`.
 
 ```bash
+# Ensure you're at the root folder.
+cd terraform-starter
+
+# Deploy (Build & Publish) the Docker images
+$ ./scripts/deploy-image.sh
+
+# Apply Terraform
 $ terraform apply
 ```
