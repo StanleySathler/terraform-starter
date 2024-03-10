@@ -1,7 +1,7 @@
 import { setupApp } from "./utils";
 
-const PORT = 3002;
-const HOST = "::"; // This is required for Docker environments
+const PORT = Number.parseInt(process.env.PORT ?? "3003"); // Cloud Run requires you to use `process.env.PORT`.
+const HOST = "::"; // This is required for Docker environments.
 
 /*
  * Start server.
