@@ -25,7 +25,7 @@ resource "google_cloud_run_v2_service" "products-api" {
     }
 
     containers {
-      image = "gcr.io/cloudrun/hello"
+      image = "docker.io/stanleysathler/terraform-starter-products-api:1.0.0" # We can't always use `latest` - file must be changed so Terraform does a new deploy.
       resources {
         cpu_idle = true
         limits = {
