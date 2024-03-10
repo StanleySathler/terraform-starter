@@ -1,15 +1,13 @@
 # terraform-starter
 
-A starter repository for Terraform projects. It consists of:
+A starter repository for Terraform + Google Cloud projects. It consists of:
 
-1. Google Cloud Provider
-2. 2 Cloud Run instances running Node.js APIs - Products and Cart
-3. 1 API Gateway
+- Google Cloud as provider;
+- GCP Cloud Run running the APIs (Node.js + Fastify);
+- GCP API Gateway;
 
-All endpoints are prefixed with `/api` and are accessible via the API Gateway.
-
-- Requests to `/product` are routed to the Products API
-- Requests to `/cart` are routed to the Cart API
+- Requests to `api-gateway.example/product` are routed to the Products API
+- Requests to `api-gateway.example/cart` are routed to the Cart API
 
 ![image](https://github.com/StanleySathler/terraform-starter/assets/11931916/0def9ccf-8313-44ad-b7f2-a49ea360702f)
 
@@ -17,28 +15,10 @@ All endpoints are prefixed with `/api` and are accessible via the API Gateway.
 
 ### Prerequisites
 
-- Docker & Docker Compose
 - Node.js 20.x & npm 9.x
 - Terraform 1.x
 
-### Running all services
-
-Ensure you're at the root folder.
-
-```bash
-# Ensure you're at the root folder - eg. my-apps/terraform-starter
-
-$ docker-compose up # Start Kong
-$ cd products-api && npm run start:local # Start Products API - Soon we'll move this to Docker Compose too
-$ cd cart-api && npm run start:local # Start Cart API - Soon we'll move this to Docker Compose too
-```
-
-Once all services are running, open your browser and do:
-
-```bash
-GET http://localhost:8000/product
-GET http://localhost:8000/cart
-```
+For running each service, go to their respective folder.
 
 ### Deploying new versions
 
@@ -63,3 +43,7 @@ containers {
 # 4. Apply Terraform
 $ terraform -chdir=./terraform apply
 ```
+
+Then, once all your changes have been applied, open:
+- `https://api-gateway-aadbg2ri.uc.gateway.dev/product`
+- `https://api-gateway-aadbg2ri.uc.gateway.dev/cart`
