@@ -61,5 +61,5 @@ containers {
 }
 
 # 4. Apply Terraform
-$ terraform apply
+$ terraform -chdir=./terraform apply
 ```
